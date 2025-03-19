@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0B20E4552D8A6D7300590654 /* FetchRewardsProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4542D8A6D7300590654 /* FetchRewardsProjectApp.swift */; };
-		0B20E4572D8A6D7300590654 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4562D8A6D7300590654 /* ContentView.swift */; };
+		0B20E4572D8A6D7300590654 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4562D8A6D7300590654 /* RecipeView.swift */; };
 		0B20E4592D8A6D7400590654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B20E4582D8A6D7400590654 /* Assets.xcassets */; };
-		0B20E45C2D8A6D7400590654 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B20E45B2D8A6D7400590654 /* Preview Assets.xcassets */; };
 		0B20E4662D8A6D7400590654 /* FetchRewardsProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4652D8A6D7400590654 /* FetchRewardsProjectTests.swift */; };
 		0B20E4702D8A6D7400590654 /* FetchRewardsProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E46F2D8A6D7400590654 /* FetchRewardsProjectUITests.swift */; };
 		0B20E4722D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4712D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift */; };
+		0B20E4832D8A712B00590654 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4822D8A712B00590654 /* RecipeViewModel.swift */; };
+		0B20E4852D8A714900590654 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4842D8A714900590654 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +37,15 @@
 /* Begin PBXFileReference section */
 		0B20E4512D8A6D7300590654 /* FetchRewardsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchRewardsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B20E4542D8A6D7300590654 /* FetchRewardsProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsProjectApp.swift; sourceTree = "<group>"; };
-		0B20E4562D8A6D7300590654 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0B20E4562D8A6D7300590654 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		0B20E4582D8A6D7400590654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0B20E45B2D8A6D7400590654 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B20E4612D8A6D7400590654 /* FetchRewardsProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchRewardsProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B20E4652D8A6D7400590654 /* FetchRewardsProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsProjectTests.swift; sourceTree = "<group>"; };
 		0B20E46B2D8A6D7400590654 /* FetchRewardsProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchRewardsProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B20E46F2D8A6D7400590654 /* FetchRewardsProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsProjectUITests.swift; sourceTree = "<group>"; };
 		0B20E4712D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0B20E4822D8A712B00590654 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		0B20E4842D8A714900590654 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,20 +96,14 @@
 		0B20E4532D8A6D7300590654 /* FetchRewardsProject */ = {
 			isa = PBXGroup;
 			children = (
+				0B20E4812D8A70FF00590654 /* Views */,
+				0B20E4802D8A70FA00590654 /* View Models */,
+				0B20E47F2D8A70F400590654 /* Models */,
+				0B20E47E2D8A70ED00590654 /* Network */,
 				0B20E4542D8A6D7300590654 /* FetchRewardsProjectApp.swift */,
-				0B20E4562D8A6D7300590654 /* ContentView.swift */,
 				0B20E4582D8A6D7400590654 /* Assets.xcassets */,
-				0B20E45A2D8A6D7400590654 /* Preview Content */,
 			);
 			path = FetchRewardsProject;
-			sourceTree = "<group>";
-		};
-		0B20E45A2D8A6D7400590654 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0B20E45B2D8A6D7400590654 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		0B20E4642D8A6D7400590654 /* FetchRewardsProjectTests */ = {
@@ -125,6 +121,37 @@
 				0B20E4712D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift */,
 			);
 			path = FetchRewardsProjectUITests;
+			sourceTree = "<group>";
+		};
+		0B20E47E2D8A70ED00590654 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0B20E47F2D8A70F400590654 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B20E4842D8A714900590654 /* Recipe.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B20E4802D8A70FA00590654 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B20E4822D8A712B00590654 /* RecipeViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		0B20E4812D8A70FF00590654 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B20E4562D8A6D7300590654 /* RecipeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +258,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B20E45C2D8A6D7400590654 /* Preview Assets.xcassets in Resources */,
 				0B20E4592D8A6D7400590654 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B20E4572D8A6D7300590654 /* ContentView.swift in Sources */,
+				0B20E4572D8A6D7300590654 /* RecipeView.swift in Sources */,
+				0B20E4832D8A712B00590654 /* RecipeViewModel.swift in Sources */,
 				0B20E4552D8A6D7300590654 /* FetchRewardsProjectApp.swift in Sources */,
+				0B20E4852D8A714900590654 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -421,7 +449,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FetchRewardsProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = S4Q5XNTY23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -450,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FetchRewardsProject/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = S4Q5XNTY23;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
