@@ -15,6 +15,8 @@
 		0B20E4722D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4712D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift */; };
 		0B20E4832D8A712B00590654 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4822D8A712B00590654 /* RecipeViewModel.swift */; };
 		0B20E4852D8A714900590654 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4842D8A714900590654 /* Recipe.swift */; };
+		0B20E4872D8BEA0A00590654 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4862D8BEA0A00590654 /* NetworkService.swift */; };
+		0B20E4892D8BEE9100590654 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4882D8BEE9100590654 /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		0B20E4712D8A6D7400590654 /* FetchRewardsProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRewardsProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0B20E4822D8A712B00590654 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		0B20E4842D8A714900590654 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		0B20E4862D8BEA0A00590654 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0B20E4882D8BEE9100590654 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 		0B20E47E2D8A70ED00590654 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				0B20E4862D8BEA0A00590654 /* NetworkService.swift */,
+				0B20E4882D8BEE9100590654 /* NetworkClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -285,8 +291,10 @@
 			files = (
 				0B20E4572D8A6D7300590654 /* RecipeView.swift in Sources */,
 				0B20E4832D8A712B00590654 /* RecipeViewModel.swift in Sources */,
+				0B20E4872D8BEA0A00590654 /* NetworkService.swift in Sources */,
 				0B20E4552D8A6D7300590654 /* FetchRewardsProjectApp.swift in Sources */,
 				0B20E4852D8A714900590654 /* Recipe.swift in Sources */,
+				0B20E4892D8BEE9100590654 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
