@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkService {
-    func recipes() async throws -> RecipeList
+    func getRecipes() async throws -> RecipeList
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RecipeViewModel: ObservableObject {
     private let networkService: NetworkService
@@ -20,7 +21,7 @@ class RecipeViewModel: ObservableObject {
     
     func getRecipes() {
         Task {
-            let recipes = try await networkService.recipes()
+            let recipes = try await networkService.getRecipes()
             self.recipes = recipes.recipes
         }
     }

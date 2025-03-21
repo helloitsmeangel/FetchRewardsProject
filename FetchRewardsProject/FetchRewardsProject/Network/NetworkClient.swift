@@ -30,7 +30,7 @@ class NetworkClient: NetworkService {
         return request
     }
     
-    func recipes() async throws -> RecipeList {
+    func getRecipes() async throws -> RecipeList {
         let recipeRequest = try getRequest(path: Self.recipePath)
         let (data, response) = try await URLSession.shared.data(for: recipeRequest)
         
