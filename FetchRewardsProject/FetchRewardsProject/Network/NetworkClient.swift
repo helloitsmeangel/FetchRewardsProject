@@ -14,7 +14,13 @@ class NetworkClient: NetworkService {
         case apiError
     }
     
-    private static let recipePath = "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json"
+    enum APIPath: String {
+        case recipe = "/recipes.json"
+        case malformed = "/recipes-malformed.json"
+        case empty = "/recipes-empty.json"
+    }
+    
+    private static let basePath = "https://d3jbb8n5wk0qxi.cloudfront.net"
     
     private func buildUrl(_ urlString: String) throws -> URL {
         guard let url = URL(string: urlString) else {
@@ -31,7 +37,7 @@ class NetworkClient: NetworkService {
     }
     
     func getRecipes() async throws -> RecipeList {
-        let recipeRequest = try getRequest(path: Self.recipePath)
+        let recipeRequest = try getRequest(path: Self.basePath + APIPath.recipe.rawValue)
         let (data, response) = try await URLSession.shared.data(for: recipeRequest)
         
         guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode < 300 else {

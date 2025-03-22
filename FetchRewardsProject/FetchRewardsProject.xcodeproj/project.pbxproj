@@ -17,6 +17,8 @@
 		0B20E4852D8A714900590654 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4842D8A714900590654 /* Recipe.swift */; };
 		0B20E4872D8BEA0A00590654 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4862D8BEA0A00590654 /* NetworkService.swift */; };
 		0B20E4892D8BEE9100590654 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4882D8BEE9100590654 /* NetworkClient.swift */; };
+		0B20E48D2D8D2C1A00590654 /* SourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E48C2D8D2C1A00590654 /* SourceInfo.swift */; };
+		0B20E48F2D8D304900590654 /* EmptyRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		0B20E4842D8A714900590654 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		0B20E4862D8BEA0A00590654 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0B20E4882D8BEE9100590654 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		0B20E48C2D8D2C1A00590654 /* SourceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceInfo.swift; sourceTree = "<group>"; };
+		0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRecipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				0B20E4842D8A714900590654 /* Recipe.swift */,
+				0B20E48C2D8D2C1A00590654 /* SourceInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				0B20E4562D8A6D7300590654 /* RecipeView.swift */,
+				0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,9 +297,11 @@
 			files = (
 				0B20E4572D8A6D7300590654 /* RecipeView.swift in Sources */,
 				0B20E4832D8A712B00590654 /* RecipeViewModel.swift in Sources */,
+				0B20E48F2D8D304900590654 /* EmptyRecipeView.swift in Sources */,
 				0B20E4872D8BEA0A00590654 /* NetworkService.swift in Sources */,
 				0B20E4552D8A6D7300590654 /* FetchRewardsProjectApp.swift in Sources */,
 				0B20E4852D8A714900590654 /* Recipe.swift in Sources */,
+				0B20E48D2D8D2C1A00590654 /* SourceInfo.swift in Sources */,
 				0B20E4892D8BEE9100590654 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

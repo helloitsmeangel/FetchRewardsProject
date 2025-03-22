@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct SourceInfo {
+    let sourceUrl: String?
+    let youtubeUrl: String?
+}
