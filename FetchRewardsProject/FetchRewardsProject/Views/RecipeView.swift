@@ -15,7 +15,7 @@ struct RecipeView: View {
             GeometryReader { geometry in
                 ScrollView {
                     if !viewModel.recipes.isEmpty {
-                        Group {
+                        VStack(alignment: .center) {
                             TabView {
                                 ForEach(viewModel.recipes, id: \.uuid) { recipe in
                                     RecipeItem(recipe: recipe)
@@ -29,7 +29,7 @@ struct RecipeView: View {
                                     .presentationDetents([.height(geometry.size.height * 0.3)])
                             })
                         }
-                        .frame(width: geometry.size.width, height: geometry.size.height * 0.8)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                     } else {
                         EmptyRecipeView()
                     }
@@ -54,16 +54,17 @@ struct RecipeItem: View {
     var recipe: Recipe
     
     var body: some View {
-        VStack {
+        Group {
             if let photoPath = recipe.photoUrlLarge, let url = URL(string: photoPath) {
                 AsyncImage(url: url) { image in
                     image
                         .resizable()
-                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
                 } placeholder: {
                     Image(systemName: "questionmark")
                         .resizable()
-                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
                 }
             } else {
                 Image(systemName: "questionmark")
@@ -98,7 +99,6 @@ struct RecipeItem: View {
                 .font(.system(size: 20, weight: .black))
                 .padding(10)
         }
-        .background(Color.gray)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding(.horizontal, 30)
         .padding(.vertical, 40)
