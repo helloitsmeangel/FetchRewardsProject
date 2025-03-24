@@ -25,7 +25,7 @@ struct RecipeView: View {
                             .tabViewStyle(.page)
                             .padding(.horizontal, 20)
                             .sheet(isPresented: $viewModel.showRecipeUrls, content: {
-                                RecipeUrlsSheet(sourceInfo: viewModel.recipeSourceInfo)
+                                RecipeUrlsSheet(recipe: viewModel.tappedRecipe)
                                     .presentationDetents([.height(geometry.size.height * 0.3)])
                             })
                         }
@@ -42,6 +42,9 @@ struct RecipeView: View {
             .navigationTitle("Recipes")
             .navigationBarTitleDisplayMode(.large)
             .environmentObject(viewModel)
+            .onAppear {
+                viewModel.getRecipes()
+            }
         }
     }
 }
@@ -100,14 +103,14 @@ struct RecipeItem: View {
         .padding(.horizontal, 30)
         .padding(.vertical, 40)
         .onTapGesture {
-            recipeViewModel.showRecipeSheet(recipe)
+            recipeViewModel.didTapOnRecipe(recipe)
         }
     }
 }
 
 struct RecipeUrlsSheet: View {
     @EnvironmentObject var recipeViewModel: RecipeViewModel
-    var sourceInfo: SourceInfo?
+    var recipe: Recipe?
     
     var body: some View {
         VStack {
@@ -136,8 +139,8 @@ struct RecipeUrlsSheet: View {
             .frame(maxWidth: .infinity)
             
             Spacer()
-            Text("Source: \(sourceInfo?.sourceUrl ?? "N/A")")
-            Text("YouTube: \(sourceInfo?.youtubeUrl ?? "N/A")")
+            Text("Source: \(recipe?.sourceUrl ?? "N/A")")
+            Text("YouTube: \(recipe?.youtubeUrl ?? "N/A")")
             Spacer()
         }
     }

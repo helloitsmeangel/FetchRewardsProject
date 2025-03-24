@@ -11,7 +11,7 @@ import SwiftUI
 struct FetchRewardsProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            RecipeView(viewModel: RecipeViewModel(networkService: NetworkClient()))
+            RecipeView(viewModel: RecipeViewModel(recipeNetworkService: NetworkClient()))
         }
     }
 }

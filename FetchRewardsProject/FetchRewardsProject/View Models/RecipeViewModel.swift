@@ -9,32 +9,30 @@ import Foundation
 import UIKit
 
 class RecipeViewModel: ObservableObject {
-    private let networkService: NetworkService
+    private let recipeNetworkService: RecipeService
     
     @Published var recipes: [Recipe] = []
     @Published var showRecipeUrls: Bool = false
     @Published var error: Error?
     
-    var recipeSourceInfo: SourceInfo?
+    var tappedRecipe: Recipe?
     
-    init(networkService: NetworkService) {
-        self.networkService = networkService
-        
-        getRecipes()
-    }
-    
-    func showRecipeSheet(_ recipe: Recipe) {
-        recipeSourceInfo = SourceInfo(sourceUrl: recipe.sourceUrl, youtubeUrl: recipe.youtubeUrl)
-        showRecipeUrls = true
+    init(recipeNetworkService: RecipeService) {
+        self.recipeNetworkService = recipeNetworkService
         
         UIPageControl.appearance().currentPageIndicatorTintColor = .black
-        UIPageControl.appearance().pageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = .gray
+    }
+    
+    func didTapOnRecipe(_ recipe: Recipe) {
+        tappedRecipe = recipe
+        showRecipeUrls = true
     }
     
     func getRecipes() {
         Task { @MainActor in
             do {
-                let recipes = try await networkService.getRecipes()
+                let recipes = try await recipeNetworkService.getRecipes()
                 self.recipes = recipes.recipes
             } catch {
                 self.error = error

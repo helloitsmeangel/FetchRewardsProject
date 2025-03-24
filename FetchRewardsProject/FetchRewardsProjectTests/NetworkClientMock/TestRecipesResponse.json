@@ -1,0 +1,58 @@
+{
+    "recipes": [
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart 1",
+            "photo_url_large": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/large.jpg",
+            "photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/small.jpg",
+            "uuid": "00000000-0000-0000-0000-000000000001",
+            "source_url": "https://www.bbcgoodfood.com/recipes/778642/apple-and-blackberry-crumble",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        },
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart 2",
+            "photo_url_large": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/large.jpg",
+            "photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/small.jpg",
+            "uuid": "00000000-0000-0000-0000-000000000002",
+            "source_url": "https://www.bbcgoodfood.com/recipes/778642/apple-and-blackberry-crumble",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        },
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart 3",
+            "photo_url_large": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/large.jpg",
+            "photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/small.jpg",
+            "uuid": "00000000-0000-0000-0000-000000000003",
+            "source_url": "https://www.bbcgoodfood.com/recipes/778642/apple-and-blackberry-crumble",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        },
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart 4",
+            "photo_url_large": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/large.jpg",
+            "photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/small.jpg",
+            "uuid": "00000000-0000-0000-0000-000000000004",
+            "source_url": "https://www.bbcgoodfood.com/recipes/778642/apple-and-blackberry-crumble",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        },
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart 5",
+            "photo_url_large": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/large.jpg",
+            "photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/small.jpg",
+            "uuid": "00000000-0000-0000-0000-000000000005",
+            "source_url": "https://www.bbcgoodfood.com/recipes/778642/apple-and-blackberry-crumble",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        },
+        {
+            "cuisine": "British",
+            "name": "Bakewell Tart 6",
+            "photo_url_large": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/large.jpg",
+            "photo_url_small": "https://d3jbb8n5wk0qxi.cloudfront.net/photos/dd936646-8100-4a1c-b5ce-5f97adf30a42/small.jpg",
+            "uuid": "00000000-0000-0000-0000-000000000006",
+            "source_url": "https://www.bbcgoodfood.com/recipes/778642/apple-and-blackberry-crumble",
+            "youtube_url": "https://www.youtube.com/watch?v=some.id"
+        },
+    ]
+}

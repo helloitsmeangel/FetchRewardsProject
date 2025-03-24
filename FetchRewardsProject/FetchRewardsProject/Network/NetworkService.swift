@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkService {
-    func getRecipes() async throws -> RecipeList
+    func fetch<T: Codable>(path: String) async throws -> T
 }

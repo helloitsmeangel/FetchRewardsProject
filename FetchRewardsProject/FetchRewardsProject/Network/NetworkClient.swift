@@ -7,11 +7,12 @@
 
 import Foundation
 
-class NetworkClient: NetworkService {
+class NetworkClient: NetworkService, RecipeService {
     
     enum NetworkError: Error {
         case invalidURL
         case apiError
+        case decodeError
     }
     
     enum APIPath: String {
@@ -29,23 +30,27 @@ class NetworkClient: NetworkService {
         return url
     }
     
-    private func getRequest(path: String) throws -> URLRequest {
+    private func buildRequest(path: String) throws -> URLRequest {
         let requestUrl = try buildUrl(path)
         let request = URLRequest(url: requestUrl)
         
         return request
     }
     
-    func getRecipes() async throws -> RecipeList {
-        let recipeRequest = try getRequest(path: Self.basePath + APIPath.recipe.rawValue)
-        let (data, response) = try await URLSession.shared.data(for: recipeRequest)
+    func fetch<T: Codable>(path: String) async throws -> T {
+        let request = try buildRequest(path: path)
+        let (data, response) = try await URLSession.shared.data(for: request)
         
         guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode < 300 else {
             throw NetworkError.apiError
         }
         
-        let jsonDecoder = JSONDecoder()
-        let recipeList = try jsonDecoder.decode(RecipeList.self, from: data)
+        let object = try JSONDecoder().decode(T.self, from: data)
+        return object
+    }
+    
+    func getRecipes() async throws -> RecipeList {
+        let recipeList: RecipeList = try await fetch(path: Self.basePath + APIPath.recipe.rawValue)
         
         return recipeList
     }
