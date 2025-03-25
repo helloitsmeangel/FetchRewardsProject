@@ -15,5 +15,6 @@ struct EmptyRecipeView: View {
                 .font(.system(size: 20, weight: .black))
             Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

@@ -45,6 +45,15 @@ struct RecipeView: View {
             .onAppear {
                 viewModel.getRecipes()
             }
+            .alert("Error", isPresented: .constant(viewModel.error != nil), actions: {
+                Button {
+                    viewModel.error = nil
+                } label: {
+                    Text("Ok")
+                }
+            }, message: {
+                Text(viewModel.error?.localizedDescription ?? "")
+            })
         }
     }
 }
@@ -55,23 +64,16 @@ struct RecipeItem: View {
     
     var body: some View {
         Group {
-            if let photoPath = recipe.photoUrlLarge, let url = URL(string: photoPath) {
-                AsyncImage(url: url) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                } placeholder: {
-                    Image(systemName: "questionmark")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                }
-            } else {
+            AsyncCachedImage(url: URL(string: recipe.photoUrlLarge ?? ""), id: recipe.uuid, content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }, placeholder: {
                 Image(systemName: "questionmark")
                     .resizable()
-                    .scaledToFit()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200)
-            }
+            })
         }
         .overlay(alignment: .topLeading) {
             Capsule()
@@ -99,6 +101,7 @@ struct RecipeItem: View {
                 .font(.system(size: 20, weight: .black))
                 .padding(10)
         }
+        .background(Color.gray)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .padding(.horizontal, 30)
         .padding(.vertical, 40)
@@ -143,5 +146,85 @@ struct RecipeUrlsSheet: View {
             Text("YouTube: \(recipe?.youtubeUrl ?? "N/A")")
             Spacer()
         }
+    }
+}
+
+@MainActor
+struct AsyncCachedImage<ImageView: View, PlaceholderView: View>: View {
+    
+    var url: URL?
+    var id: String
+    @ViewBuilder var content: (Image) -> ImageView
+    @ViewBuilder var placeholder: () -> PlaceholderView
+    
+    @State var image: UIImage? = nil
+    
+    init(url: URL?, id: String, @ViewBuilder content: @escaping (Image) -> ImageView, @ViewBuilder placeholder: @escaping () -> PlaceholderView) {
+        self.url = url
+        self.id = id
+        self.content = content
+        self.placeholder = placeholder
+    }
+    
+    var body: some View {
+        VStack {
+            if let uiImage = image {
+                content(Image(uiImage: uiImage))
+            } else {
+                placeholder()
+                    .onAppear {
+                        Task {
+                            image = await downloadPhoto()
+                        }
+                    }
+            }
+        }
+    }
+    
+    private func downloadPhoto() async -> UIImage? {
+        do {
+            guard let url else { return nil }
+            // Check if the image is cached already
+            if let cachedResponse = getSavedImage(named: "\(id).jpg") {
+                return cachedResponse
+            } else {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                
+                guard let image = UIImage(data: data) else {
+                    return nil
+                }
+                
+                let _ = saveImage(imagePath: "\(id).jpg", image: image)
+                
+                return image
+            }
+        } catch {
+            print("Error downloading: \(error)")
+            return nil
+        }
+    }
+    
+    private func saveImage(imagePath: String?, image: UIImage) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData(), let imagePath else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        do {
+            try data.write(to: directory.appendingPathComponent(imagePath)!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
+    private func getSavedImage(named: String?) -> UIImage? {
+        if let named, let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            let image = UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
+        }
+        return nil
     }
 }

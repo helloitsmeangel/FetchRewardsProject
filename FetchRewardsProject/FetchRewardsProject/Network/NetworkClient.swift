@@ -9,10 +9,21 @@ import Foundation
 
 class NetworkClient: NetworkService, RecipeService {
     
-    enum NetworkError: Error {
+    enum NetworkError: Error, LocalizedError {
         case invalidURL
         case apiError
         case decodeError
+        
+        var errorDescription: String? {
+            switch self {
+            case .invalidURL:
+                return "The URL is invalid."
+            case .apiError:
+                return "There was a problem with the server."
+            case .decodeError:
+                return "There was an error with the data."
+            }
+        }
     }
     
     enum APIPath: String {
