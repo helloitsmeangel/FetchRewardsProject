@@ -21,7 +21,6 @@ struct RecipeView: View {
                                     RecipeItem(recipe: recipe)
                                 }
                             }
-                            .tint(.black)
                             .tabViewStyle(.page)
                             .padding(.horizontal, 20)
                             .sheet(isPresented: $viewModel.showRecipeUrls, content: {
@@ -34,7 +33,7 @@ struct RecipeView: View {
                         EmptyRecipeView()
                     }
                 }
-                .background(Color(red: 0.94, green: 0.94, blue: 0.94))
+                .background(Color(uiColor: UIColor.tertiarySystemFill))
                 .refreshable {
                     viewModel.getRecipes()
                 }
@@ -78,26 +77,17 @@ struct RecipeItem: View {
         .overlay(alignment: .topLeading) {
             Capsule()
                 .frame(width: 100, height: 30)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color(uiColor: UIColor.systemBackground))
                 .padding(10)
                 .overlay(
                     Text(recipe.cuisine)
+                        .foregroundStyle(Color(uiColor: UIColor.label))
                 )
-        }
-        .overlay(alignment: .topTrailing) {
-            Button {
-                print("Bookmarked")
-            } label: {
-                Image(systemName: "bookmark.circle")
-            }
-            .font(.system(size: 35))
-            .foregroundStyle(.white)
-            .padding(10)
         }
         .overlay(alignment: .bottom) {
             Text(recipe.name)
-                .multilineTextAlignment(.center)
                 .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
                 .font(.system(size: 20, weight: .black))
                 .padding(10)
         }

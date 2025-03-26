@@ -118,7 +118,6 @@
 				0B20E4802D8A70FA00590654 /* View Models */,
 				0B20E47F2D8A70F400590654 /* Models */,
 				0B20E47E2D8A70ED00590654 /* Network */,
-				0B20E4542D8A6D7300590654 /* FetchRewardsProjectApp.swift */,
 				0B20E4582D8A6D7400590654 /* Assets.xcassets */,
 			);
 			path = FetchRewardsProject;
@@ -172,6 +171,7 @@
 		0B20E4812D8A70FF00590654 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B20E4542D8A6D7300590654 /* FetchRewardsProjectApp.swift */,
 				0B20E4562D8A6D7300590654 /* RecipeView.swift */,
 				0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */,
 				0BA7166D2D93ADA6002188BA /* AsyncCachedImageView.swift */,
