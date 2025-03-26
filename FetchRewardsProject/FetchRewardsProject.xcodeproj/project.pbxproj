@@ -16,13 +16,14 @@
 		0B20E4852D8A714900590654 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4842D8A714900590654 /* Recipe.swift */; };
 		0B20E4872D8BEA0A00590654 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4862D8BEA0A00590654 /* NetworkService.swift */; };
 		0B20E4892D8BEE9100590654 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4882D8BEE9100590654 /* NetworkClient.swift */; };
-		0B20E48D2D8D2C1A00590654 /* SourceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E48C2D8D2C1A00590654 /* SourceInfo.swift */; };
 		0B20E48F2D8D304900590654 /* EmptyRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */; };
 		0B20E4922D90E8DD00590654 /* NetworkClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4912D90E8DD00590654 /* NetworkClientMock.swift */; };
 		0B20E4942D90E95000590654 /* TestRecipesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B20E4932D90E95000590654 /* TestRecipesResponse.json */; };
 		0B20E4962D90EC5F00590654 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4952D90EC5F00590654 /* Mockable.swift */; };
 		0B20E4982D90EF4600590654 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4972D90EF4600590654 /* RecipeService.swift */; };
 		0B20E49A2D90F3A900590654 /* RecipeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E4992D90F3A900590654 /* RecipeViewModelTests.swift */; };
+		0BA7166E2D93ADA6002188BA /* AsyncCachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7166D2D93ADA6002188BA /* AsyncCachedImageView.swift */; };
+		0BA716702D93ADDD002188BA /* AsyncCachedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA7166F2D93ADDD002188BA /* AsyncCachedImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +56,14 @@
 		0B20E4842D8A714900590654 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		0B20E4862D8BEA0A00590654 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0B20E4882D8BEE9100590654 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		0B20E48C2D8D2C1A00590654 /* SourceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceInfo.swift; sourceTree = "<group>"; };
 		0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRecipeView.swift; sourceTree = "<group>"; };
 		0B20E4912D90E8DD00590654 /* NetworkClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientMock.swift; sourceTree = "<group>"; };
 		0B20E4932D90E95000590654 /* TestRecipesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestRecipesResponse.json; sourceTree = "<group>"; };
 		0B20E4952D90EC5F00590654 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		0B20E4972D90EF4600590654 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
 		0B20E4992D90F3A900590654 /* RecipeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModelTests.swift; sourceTree = "<group>"; };
+		0BA7166D2D93ADA6002188BA /* AsyncCachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCachedImageView.swift; sourceTree = "<group>"; };
+		0BA7166F2D93ADDD002188BA /* AsyncCachedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCachedImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				0B20E4842D8A714900590654 /* Recipe.swift */,
-				0B20E48C2D8D2C1A00590654 /* SourceInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				0B20E4822D8A712B00590654 /* RecipeViewModel.swift */,
+				0BA7166F2D93ADDD002188BA /* AsyncCachedImageViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -172,6 +174,7 @@
 			children = (
 				0B20E4562D8A6D7300590654 /* RecipeView.swift */,
 				0B20E48E2D8D304900590654 /* EmptyRecipeView.swift */,
+				0BA7166D2D93ADA6002188BA /* AsyncCachedImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,9 +324,10 @@
 				0B20E48F2D8D304900590654 /* EmptyRecipeView.swift in Sources */,
 				0B20E4872D8BEA0A00590654 /* NetworkService.swift in Sources */,
 				0B20E4982D90EF4600590654 /* RecipeService.swift in Sources */,
+				0BA7166E2D93ADA6002188BA /* AsyncCachedImageView.swift in Sources */,
+				0BA716702D93ADDD002188BA /* AsyncCachedImageViewModel.swift in Sources */,
 				0B20E4552D8A6D7300590654 /* FetchRewardsProjectApp.swift in Sources */,
 				0B20E4852D8A714900590654 /* Recipe.swift in Sources */,
-				0B20E48D2D8D2C1A00590654 /* SourceInfo.swift in Sources */,
 				0B20E4892D8BEE9100590654 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

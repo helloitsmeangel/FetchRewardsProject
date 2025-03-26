@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeView: View {
-    @ObservedObject var viewModel: RecipeViewModel
+    @StateObject var viewModel: RecipeViewModel
     
     var body: some View {
         NavigationStack {
@@ -64,7 +64,7 @@ struct RecipeItem: View {
     
     var body: some View {
         Group {
-            AsyncCachedImage(url: URL(string: recipe.photoUrlLarge ?? ""), id: recipe.uuid, content: { image in
+            AsyncCachedImageView(viewModel: AsyncCachedImageViewModel(url: URL(string: recipe.photoUrlLarge ?? ""), id: recipe.uuid), content: { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -142,89 +142,15 @@ struct RecipeUrlsSheet: View {
             .frame(maxWidth: .infinity)
             
             Spacer()
-            Text("Source: \(recipe?.sourceUrl ?? "N/A")")
-            Text("YouTube: \(recipe?.youtubeUrl ?? "N/A")")
+            if let sourceUrl = URL(string: recipe?.sourceUrl ?? "") {
+                Link("View website", destination: sourceUrl)
+                    .padding(.vertical, 10)
+            }
+            if let youtubeUrl = URL(string: recipe?.youtubeUrl ?? "") {
+                Link("View YouTube video", destination: youtubeUrl)
+                    .padding(.vertical, 10)
+            }
             Spacer()
         }
-    }
-}
-
-@MainActor
-struct AsyncCachedImage<ImageView: View, PlaceholderView: View>: View {
-    
-    var url: URL?
-    var id: String
-    @ViewBuilder var content: (Image) -> ImageView
-    @ViewBuilder var placeholder: () -> PlaceholderView
-    
-    @State var image: UIImage? = nil
-    
-    init(url: URL?, id: String, @ViewBuilder content: @escaping (Image) -> ImageView, @ViewBuilder placeholder: @escaping () -> PlaceholderView) {
-        self.url = url
-        self.id = id
-        self.content = content
-        self.placeholder = placeholder
-    }
-    
-    var body: some View {
-        VStack {
-            if let uiImage = image {
-                content(Image(uiImage: uiImage))
-            } else {
-                placeholder()
-                    .onAppear {
-                        Task {
-                            image = await downloadPhoto()
-                        }
-                    }
-            }
-        }
-    }
-    
-    private func downloadPhoto() async -> UIImage? {
-        do {
-            guard let url else { return nil }
-            // Check if the image is cached already
-            if let cachedResponse = getSavedImage(named: "\(id).jpg") {
-                return cachedResponse
-            } else {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                
-                guard let image = UIImage(data: data) else {
-                    return nil
-                }
-                
-                let _ = saveImage(imagePath: "\(id).jpg", image: image)
-                
-                return image
-            }
-        } catch {
-            print("Error downloading: \(error)")
-            return nil
-        }
-    }
-    
-    private func saveImage(imagePath: String?, image: UIImage) -> Bool {
-        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData(), let imagePath else {
-            return false
-        }
-        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
-            return false
-        }
-        do {
-            try data.write(to: directory.appendingPathComponent(imagePath)!)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
-    
-    private func getSavedImage(named: String?) -> UIImage? {
-        if let named, let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            let image = UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
-            return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
-        }
-        return nil
     }
 }
