@@ -30,6 +30,7 @@ class RecipeViewModel: ObservableObject {
     }
     
     func getRecipes() {
+        recipes = []
         Task { @MainActor in
             do {
                 let recipes = try await recipeNetworkService.getRecipes()
